@@ -21,10 +21,9 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
-        for (Cell c : steps) {
-            for (int index = 0; index != figures.length; index++) {
-                Figure figure = figures[index];
-                if (figure != null && figure.position().equals(c)) {
+        for (Cell cell : steps) {
+            for (Figure figure : figures) {
+                if (figure != null && figure.position().equals(cell)) {
                     throw new OccupiedCellException("Could not move because the path is not free");
                 }
             }
